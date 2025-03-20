@@ -32,7 +32,7 @@ public class Main {
         invoker.setCommand("remove_by_id", new RemoveByIDCommand(receiver));
         invoker.setCommand("clear", new ClearCommand(receiver));
         invoker.setCommand("save", new SaveCommand(receiver));
-        invoker.setCommand("execute_script", new ExecuteSciptCommand(receiver, invoker));
+        invoker.setCommand("execute_script", new ExecuteScriptCommand(receiver, invoker));
         invoker.setCommand("exit", new ExitCommand(receiver));
         invoker.setCommand("add_if_max", new AddIfMaxCommand(receiver));
         invoker.setCommand("remove_greater", new RemoveGreaterCommand(receiver));

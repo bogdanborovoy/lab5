@@ -10,17 +10,17 @@ import helpers.Invoker;
  * в котором их вводит пользователь в интерактивном режиме)
  * @author bogdanborovoy
  */
-public class ExecuteSciptCommand implements Command {
+public class ExecuteScriptCommand implements Command {
     CollectionManager cm;
     Invoker invoker;
 
     /**
-     * Конструктор класса ExecuteSciptCommand.
+     * Конструктор класса ExecuteScriptCommand.
      *
      * @param cm Менеджер коллекции, который будет использоваться для выполнения скрипта
      * @param invoker Инвокер, который будет использоваться для выполнения команд из скрипта
      */
-    public ExecuteSciptCommand(CollectionManager cm, Invoker invoker) {
+    public ExecuteScriptCommand(CollectionManager cm, Invoker invoker) {
         this.cm = cm;
         this.invoker = invoker;
     }
@@ -38,7 +38,7 @@ public class ExecuteSciptCommand implements Command {
      * @return Описание команды в виде строки
      */
     public String descr() {
-        return "execute_script : считать и исполнить скрипт из указанного файла. " +
+        return "execute_script : считать и исполнить скрипт из указанного csv файла. " +
                 "В скрипте содержатся команды в таком же виде, в котором их вводит пользователь в " +
                 "интерактивном режиме";
     }
