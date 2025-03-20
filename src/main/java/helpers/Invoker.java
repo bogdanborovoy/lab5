@@ -1,12 +1,9 @@
 package helpers;
 
 import commands.Command;
-import commands.HelpCommand;
-import exceptions.WrongCommandNameException;
 
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
 
 /**
  * Класс Invoker отвечает за управление и выполнение команд.
@@ -55,14 +52,13 @@ public class Invoker {
      * Выполняет команду по её названию.
      *
      * @param name Название команды
-     * @throws WrongCommandNameException Если команда с указанным названием не найдена
      */
     public void runCommand(String name) {
         Command command = commands.get(name);
         if (command != null) {
             command.execute();
         } else {
-            throw new WrongCommandNameException("Команда не найдена, повторите попытку");
+            System.out.println("Команда не найдена, повторите попытку");
         }
     }
 }
