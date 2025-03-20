@@ -148,7 +148,7 @@ public class CollectionManager {
                 Integer x = Integer.parseInt(sc.nextLine());
                 coordinates.setX(x);
             } catch (NumberFormatException e) {
-                System.out.println("Координаты должны быть целым числом");
+                System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -162,7 +162,7 @@ public class CollectionManager {
                     break;
                 }
             } catch (NumberFormatException e) {
-                System.out.println("Координаты должны быть целым числом");
+                System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -176,7 +176,7 @@ public class CollectionManager {
                 double health = Double.parseDouble(sc.nextLine());
                 spaceMarine.setHealth(health);
             } catch (NumberFormatException e) {
-                System.out.println("Показатель здоровья должен быть числом");
+                System.out.println("Показатель здоровья должен быть числом от 0 до 2147483647");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -187,7 +187,7 @@ public class CollectionManager {
                 int heartCount = Integer.parseInt(sc.nextLine());
                 spaceMarine.setHeartCount(heartCount);
             } catch (NumberFormatException e) {
-                System.out.println("Количество сердец должно быть целым числом");
+                System.out.println("Количество сердец должно быть целым числом от 0 до 3");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }
@@ -231,7 +231,7 @@ public class CollectionManager {
                 Integer marinesCount = Integer.parseInt(sc.nextLine());
                 chapter.setMarinesCount(marinesCount);
             } catch (NumberFormatException e) {
-                System.out.println("Введите целое число");
+                System.out.println("Введите целое число от 0 до 1000");
             } catch (IllegalArgumentException e) {
                 System.out.println(e.getMessage());
             }

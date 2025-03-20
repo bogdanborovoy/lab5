@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
         //export FILE_NAME="/home/studs/s465267/lab5/files/values.csv"
-        //export FILE_NAME="../src/main/java/files/values.csv"
+        //export FILE_NAME="src/main/java/files/values.csv"
         String filePath = System.getenv("FILE_NAME");
         //String filePath = "src/main/java/files/values.csv";
         CSVReader csvReader;

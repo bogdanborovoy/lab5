@@ -247,7 +247,7 @@ public class SpaceMarine {
      * Устанавливает количество сердец космического десантника.
      *
      * @param heartCount Количество сердец
-     * @throws IllegalArgumentException Если значение меньше или равно 0 или больше 3
+     * @throws IllegalArgumentException Если значение меньше или равно 0, или больше 3
      */
     public void setHeartCount(int heartCount) {
         if (heartCount <= 0) {
