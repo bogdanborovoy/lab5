@@ -70,6 +70,10 @@ public class Main {
         catch (NullPointerException e) {
             System.err.println("Файл не указан");
         }
+        catch (IllegalArgumentException e) {
+            System.out.println("Неверный формат данных в указанном файле");
+            System.exit(1);
+        }
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите команду (для получения списка всех команд введите \"help\"): ");

@@ -1,7 +1,8 @@
 package commands;
 
-import classes.SpaceMarine;
 import helpers.CollectionManager;
+
+import java.util.Scanner;
 
 /**
  * Класс AddIfMaxCommand
@@ -11,6 +12,18 @@ import helpers.CollectionManager;
  */
 public class AddIfMaxCommand implements Command {
     CollectionManager cm;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса AddIfMaxCommand.
@@ -26,8 +39,14 @@ public class AddIfMaxCommand implements Command {
      * если его значение превышает значение наибольшего элемента этой коллекции.
      */
     public void execute() {
-        System.out.println("Создание элемента");
-        cm.addIfMax(cm.add());
+        Scanner sc = new Scanner(System.in);
+        if (interactive){
+            System.out.println("Создание элемента");
+            cm.addIfMax(cm.add(sc));
+        }
+        else{
+            cm.addIfMax(cm.add());
+        }
     }
 
     /**

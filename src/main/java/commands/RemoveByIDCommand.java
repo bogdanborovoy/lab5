@@ -2,6 +2,8 @@ package commands;
 
 import helpers.CollectionManager;
 
+import java.util.Scanner;
+
 /**
  * Класс RemoveByIDCommand
  * удаляет элемент из коллекции по его id
@@ -9,6 +11,20 @@ import helpers.CollectionManager;
  */
 public class RemoveByIDCommand implements Command {
     CollectionManager cm;
+    private boolean interactive;
+    String value;
+
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+        this.value = value;
+    }
 
     /**
      * Конструктор класса RemoveByIDCommand.
@@ -23,7 +39,20 @@ public class RemoveByIDCommand implements Command {
      * Метод для выполнения команды удаления элемента по id.
      */
     public void execute() {
-        cm.removeById();
+        if (interactive) {
+            Scanner sc = new Scanner(System.in);
+            cm.removeById(sc);
+        }
+        else {
+            if (value != null) {
+                cm.removeById(Long.valueOf(value));
+            }
+            else {
+                System.out.println("ID не был передан");
+
+            }
+        }
+
     }
 
     /**

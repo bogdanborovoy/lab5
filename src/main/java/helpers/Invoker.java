@@ -11,6 +11,7 @@ import java.util.Map;
  * @author bogdanborovoy
  */
 public class Invoker {
+    private boolean interactive;
     /**
      * Словарь команд, где ключ — название команды, а значение — сама команда.
      */
@@ -35,6 +36,8 @@ public class Invoker {
         return commands;
     }
 
+
+
     /**
      * Выполняет команду, переданную в качестве параметра.
      *
@@ -56,6 +59,15 @@ public class Invoker {
     public void runCommand(String name) {
         Command command = commands.get(name);
         if (command != null) {
+            command.execute();
+        } else {
+            System.out.println("Команда не найдена, повторите попытку");
+        }
+    }
+    public void runCommand(String name, String value) {
+        Command command = commands.get(name);
+        if (command != null) {
+            command.passValue(value);
             command.execute();
         } else {
             System.out.println("Команда не найдена, повторите попытку");

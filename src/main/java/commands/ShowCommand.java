@@ -9,6 +9,18 @@ import helpers.CollectionManager;
  */
 public class ShowCommand implements Command {
     CollectionManager cm;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса ShowCommand.

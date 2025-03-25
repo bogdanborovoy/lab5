@@ -198,10 +198,10 @@ public class SpaceMarine {
      */
     public void setName(String name) {
         if (name == null) {
-            throw new IllegalArgumentException("Поле не может быть null");
+            System.out.println("Поле не может быть null");
         }
-        if (name.isEmpty()) {
-            throw new IllegalArgumentException("Строка не может быть пустой");
+        if (name.trim().isEmpty()) {
+            System.out.println("Строка не может быть пустой");
         }
         this.name = name;
     }

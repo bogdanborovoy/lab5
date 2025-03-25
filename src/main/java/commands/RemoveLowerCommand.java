@@ -1,7 +1,8 @@
 package commands;
 
-import classes.SpaceMarine;
 import helpers.CollectionManager;
+
+import java.util.Scanner;
 
 /**
  * Класс RemoveLowerCommand
@@ -10,6 +11,18 @@ import helpers.CollectionManager;
  */
 public class RemoveLowerCommand implements Command {
     CollectionManager cm;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса RemoveLowerCommand.
@@ -24,8 +37,14 @@ public class RemoveLowerCommand implements Command {
      * Метод для выполнения команды удаления элементов, меньших, чем заданный.
      */
     public void execute() {
-        System.out.println("Создание элемента");
-        cm.removeLower(cm.add());
+        Scanner sc = new Scanner(System.in);
+        if (interactive) {
+            System.out.println("Создание элемента");
+            cm.removeLower(cm.add(sc));
+        }
+        else {
+            cm.removeLower(cm.add());
+        }
     }
 
     /**

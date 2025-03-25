@@ -13,6 +13,18 @@ import helpers.Invoker;
 public class ExecuteScriptCommand implements Command {
     CollectionManager cm;
     Invoker invoker;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса ExecuteScriptCommand.

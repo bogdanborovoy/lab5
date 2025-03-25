@@ -121,14 +121,18 @@ public class CollectionManager {
         return output.toString();
     }
 
+    public SpaceMarine add(){
+        SpaceMarine spaceMarine = new SpaceMarine();
+        spaceMarines.add(spaceMarine);
+        return spaceMarine;
+    }
     /**
      * Добавляет новый элемент в коллекцию.
      *
      * @return Добавленный элемент
      */
-    public SpaceMarine add() {
+    public SpaceMarine add(Scanner sc) {
         SpaceMarine spaceMarine = new SpaceMarine();
-        Scanner sc = new Scanner(System.in);
         spaceMarine.setId();
         spaceMarine.setCreationDate();
         while (spaceMarine.getName() == null) {
@@ -241,21 +245,7 @@ public class CollectionManager {
         System.out.println("Космический десантник создан");
         return spaceMarine;
     }
-
-    /**
-     * Обновляет значение элемента коллекции по его ID.
-     */
-    public void updateID() {
-        Scanner sc = new Scanner(System.in);
-        Long id = null;
-        while (id == null) {
-            try {
-                System.out.println("Введите id: ");
-                id = Long.parseLong(sc.nextLine());
-            } catch (IllegalArgumentException e) {
-                System.out.println("ID должен быть в формате long");
-            }
-        }
+    public void updateID(Long id){
         int count = 0;
         for (SpaceMarine spaceMarine : spaceMarines) {
             if (spaceMarine.getId() == id) {
@@ -265,12 +255,35 @@ public class CollectionManager {
         }
         System.out.println("Обновлено " + count + " элемент(а)");
     }
+    /**
+     * Обновляет значение элемента коллекции по его ID.
+     */
+    public void updateID(Scanner sc) {
+        Long id = null;
+        while (id == null) {
+            try {
+                System.out.println("Введите id: ");
+                id = Long.parseLong(sc.nextLine());
+            } catch (IllegalArgumentException e) {
+                System.out.println("ID должен быть в формате long");
+            }
+        }
+        updateID(id);
+    }
 
+    public void removeById(Long id) {
+        for (SpaceMarine spaceMarine : this.spaceMarines) {
+            if (spaceMarine.getId() == id) {
+                System.out.println("Элемент " + id + " удален");
+                spaceMarines.remove(spaceMarine);
+                break;
+            }
+        }
+    }
     /**
      * Удаляет элемент из коллекции по его ID.
      */
-    public void removeById() {
-        Scanner sc = new Scanner(System.in);
+    public void removeById(Scanner sc) {
         Long id1 = null;
         while (id1 == null) {
             try {
@@ -282,13 +295,7 @@ public class CollectionManager {
         }
         long id = id1;
 
-        for (SpaceMarine spaceMarine : this.spaceMarines) {
-            if (spaceMarine.getId() == id) {
-                System.out.println("Элемент " + id + " удален");
-                spaceMarines.remove(spaceMarine);
-                break;
-            }
-        }
+        removeById(id);
     }
 
     /**
@@ -347,10 +354,16 @@ public void executeScript(Invoker invoker) {
             String[] nextRecord;
             while ((nextRecord = csvReader.readNext()) != null) {
                 for (int i = 0; i < nextRecord.length; i++) {
-                    System.out.println("Выполняется команда " + nextRecord[i].trim());
+                    String name = nextRecord[i].trim();
+                    String[] tokens = name.split(" ");
+                    Command command = invoker.getCommands().get(tokens[0]);
+                    command.setInteractive(false);
+                    System.out.println("Выполняется команда "+name);
                     invoker.runCommand(nextRecord[i].trim());
+                    command.setInteractive(true);
                 }
             }
+            System.out.println("Скрипт выполнен");
             isr.close();
         } catch (IOException | CsvValidationException e) {
             System.out.println(e.getMessage());

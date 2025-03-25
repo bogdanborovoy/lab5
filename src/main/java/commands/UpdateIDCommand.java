@@ -2,6 +2,8 @@ package commands;
 
 import helpers.CollectionManager;
 
+import java.util.Scanner;
+
 /**
  * Класс UpdateIDCommand
  * обновляет значение элемента коллекции, id которого равен заданному
@@ -10,7 +12,18 @@ import helpers.CollectionManager;
 public class UpdateIDCommand implements Command {
     CollectionManager cm;
     long id;
-
+    String value;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+    @Override
+    public void passValue(String value) {
+        this.value = value;
+    }
     /**
      * Конструктор класса UpdateIDCommand.
      *
@@ -24,7 +37,19 @@ public class UpdateIDCommand implements Command {
      * Метод для выполнения команды обновления элемента коллекции по id.
      */
     public void execute() {
-        cm.updateID();
+        Scanner sc = new Scanner(System.in);
+        if (interactive) {
+            cm.updateID(sc);
+
+        }
+        else{
+            if (value != null) {
+                cm.updateID(Long.valueOf(value));
+            }
+            else {
+                System.out.println("ID не был передан");
+            }
+        }
     }
 
     /**

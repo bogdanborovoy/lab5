@@ -11,6 +11,18 @@ import helpers.Invoker;
 public class HelpCommand implements Command {
     Invoker invoker;
     CollectionManager cm;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса HelpCommand.

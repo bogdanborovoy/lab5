@@ -10,6 +10,18 @@ import helpers.CollectionManager;
 public class FilterStartsWithNameCommand implements Command {
     CollectionManager cm;
     String name;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса FilterStartsWithNameCommand.

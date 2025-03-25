@@ -1,7 +1,8 @@
 package commands;
 
-import classes.SpaceMarine;
 import helpers.CollectionManager;
+
+import java.util.Scanner;
 
 /**
  * Класс RemoveGreaterCommand
@@ -10,6 +11,18 @@ import helpers.CollectionManager;
  */
 public class RemoveGreaterCommand implements Command {
     CollectionManager cm;
+    private boolean interactive;
+    public boolean isInteractive() {
+        return interactive;
+    }
+    public void setInteractive(boolean interactive) {
+        this.interactive = interactive;
+    }
+
+    @Override
+    public void passValue(String value) {
+
+    }
 
     /**
      * Конструктор класса RemoveGreaterCommand.
@@ -24,8 +37,14 @@ public class RemoveGreaterCommand implements Command {
      * Метод для выполнения команды удаления элементов, превышающих заданный.
      */
     public void execute() {
-        System.out.println("Создание элемента");
-        cm.removeGreater(cm.add());
+        Scanner sc = new Scanner(System.in);
+        if (interactive) {
+            System.out.println("Создание элемента");
+            cm.removeGreater(cm.add(sc));
+        }
+        else {
+            cm.removeGreater(cm.add());
+        }
     }
 
     /**

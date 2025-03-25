@@ -6,7 +6,6 @@ package commands;
  */
 
 public interface Command {
-
     /**
      * Шаблон реализации команды
      */
@@ -18,4 +17,7 @@ public interface Command {
      */
     String descr();
 
+    void setInteractive(boolean b);
+
+    void passValue(String value);
 }

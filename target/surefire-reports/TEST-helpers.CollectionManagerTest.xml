@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="helpers.CollectionManagerTest" time="0.079" tests="10" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="helpers.CollectionManagerTest" time="0.069" tests="10" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="23"/>
     <property name="sun.jnu.encoding" value="UTF-8"/>
@@ -13,7 +13,8 @@
     <property name="sun.java.launcher" value="SUN_STANDARD"/>
     <property name="user.country" value="US"/>
     <property name="sun.boot.library.path" value="/opt/homebrew/Cellar/openjdk/23.0.2/libexec/openjdk.jdk/Contents/Home/lib"/>
-    <property name="sun.java.command" value="/Users/bogdanborovoy/Desktop/lab5/target/surefire/surefirebooter-20250320154639308_3.jar /Users/bogdanborovoy/Desktop/lab5/target/surefire 2025-03-20T15-46-39_263-jvmRun1 surefire-20250320154639308_1tmp surefire_0-20250320154639308_2tmp"/>
+    <property name="sun.java.command" value="/Users/bogdanborovoy/Desktop/lab5/target/surefire/surefirebooter-20250325190143728_3.jar /Users/bogdanborovoy/Desktop/lab5/target/surefire 2025-03-25T19-01-43_681-jvmRun1 surefire-20250325190143728_1tmp surefire_0-20250325190143728_2tmp"/>
+    <property name="http.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="jdk.debug" value="release"/>
     <property name="surefire.test.class.path" value="/Users/bogdanborovoy/Desktop/lab5/target/test-classes:/Users/bogdanborovoy/Desktop/lab5/target/classes:/Users/bogdanborovoy/.m2/repository/com/opencsv/opencsv/5.7.1/opencsv-5.7.1.jar:/Users/bogdanborovoy/.m2/repository/org/apache/commons/commons-text/1.10.0/commons-text-1.10.0.jar:/Users/bogdanborovoy/.m2/repository/commons-beanutils/commons-beanutils/1.9.4/commons-beanutils-1.9.4.jar:/Users/bogdanborovoy/.m2/repository/commons-logging/commons-logging/1.2/commons-logging-1.2.jar:/Users/bogdanborovoy/.m2/repository/commons-collections/commons-collections/3.2.2/commons-collections-3.2.2.jar:/Users/bogdanborovoy/.m2/repository/org/apache/commons/commons-collections4/4.4/commons-collections4-4.4.jar:/Users/bogdanborovoy/.m2/repository/org/apache/commons/commons-lang3/3.12.0/commons-lang3-3.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/junit/jupiter/junit-jupiter/5.12.0/junit-jupiter-5.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/junit/jupiter/junit-jupiter-api/5.12.0/junit-jupiter-api-5.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/opentest4j/opentest4j/1.3.0/opentest4j-1.3.0.jar:/Users/bogdanborovoy/.m2/repository/org/junit/platform/junit-platform-commons/1.12.0/junit-platform-commons-1.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar:/Users/bogdanborovoy/.m2/repository/org/junit/jupiter/junit-jupiter-params/5.12.0/junit-jupiter-params-5.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/junit/jupiter/junit-jupiter-engine/5.12.0/junit-jupiter-engine-5.12.0.jar:/Users/bogdanborovoy/.m2/repository/org/junit/platform/junit-platform-engine/1.12.0/junit-platform-engine-1.12.0.jar:"/>
     <property name="sun.cpu.endian" value="little"/>
@@ -29,8 +30,9 @@
     <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
     <property name="java.specification.name" value="Java Platform API Specification"/>
     <property name="apple.awt.application.name" value="ForkedBooter"/>
-    <property name="surefire.real.class.path" value="/Users/bogdanborovoy/Desktop/lab5/target/surefire/surefirebooter-20250320154639308_3.jar"/>
+    <property name="surefire.real.class.path" value="/Users/bogdanborovoy/Desktop/lab5/target/surefire/surefirebooter-20250325190143728_3.jar"/>
     <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="ftp.nonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.runtime.version" value="23.0.2"/>
     <property name="user.name" value="bogdanborovoy"/>
     <property name="stdout.encoding" value="UTF-8"/>
@@ -54,11 +56,12 @@
     <property name="java.vendor" value="Homebrew"/>
     <property name="java.vm.version" value="23.0.2"/>
     <property name="sun.io.unicode.encoding" value="UnicodeBig"/>
+    <property name="socksNonProxyHosts" value="local|*.local|169.254/16|*.169.254/16"/>
     <property name="java.class.version" value="67.0"/>
   </properties>
-  <testcase name="testAdd" classname="helpers.CollectionManagerTest" time="0.042"/>
+  <testcase name="testAdd" classname="helpers.CollectionManagerTest" time="0.035"/>
   <testcase name="testClear" classname="helpers.CollectionManagerTest" time="0.001"/>
-  <testcase name="testHelp" classname="helpers.CollectionManagerTest" time="0.001">
+  <testcase name="testHelp" classname="helpers.CollectionManagerTest" time="0.002">
     <system-out><![CDATA[help : вывести справку по доступным командам
 info : вывести в стандартный поток вывода информацию о коллекции (тип, дата инициализации, количество элементов и т.д.)
 
@@ -66,24 +69,27 @@ info : вывести в стандартный поток вывода инфо
   </testcase>
   <testcase name="testInfo" classname="helpers.CollectionManagerTest" time="0.001">
     <system-out><![CDATA[Тип коллекции: TreeSet
-Время инициализации: 20/03/2025 - 03:46
+Время инициализации: 25/03/2025 - 07:01
 Количество элементов: 1
 
 ]]></system-out>
   </testcase>
-  <testcase name="testRemoveLower" classname="helpers.CollectionManagerTest" time="0.003">
+  <testcase name="testRemoveLower" classname="helpers.CollectionManagerTest" time="0.004">
     <system-out><![CDATA[Создание элемента
 1 элемент(а) удалено
 ]]></system-out>
   </testcase>
-  <testcase name="testRemoveGreater" classname="helpers.CollectionManagerTest" time="0.001"/>
+  <testcase name="testRemoveGreater" classname="helpers.CollectionManagerTest" time="0.001">
+    <system-out><![CDATA[0 элемент(а) удалено
+]]></system-out>
+  </testcase>
   <testcase name="testAddIfMax" classname="helpers.CollectionManagerTest" time="0.001">
     <system-out><![CDATA[ID элемента не превышает значение наибольшего элемента этой коллекции
 Элемент не был добавлен
 ]]></system-out>
   </testcase>
-  <testcase name="testShowNonEmptyCollection" classname="helpers.CollectionManagerTest" time="0.011">
-    <system-out><![CDATA[Космический десантник id: 7055313365327103576 имя: name координаты: (1, 2)  время создания: 20/03/2025 - 03:46 показатель здоровья: 100.0 количество сердец: 3 тип десантника: HELIX тип оружия: MANREAPER орден: name количество десантников: 1
+  <testcase name="testShowNonEmptyCollection" classname="helpers.CollectionManagerTest" time="0.01">
+    <system-out><![CDATA[Космический десантник id: 1109849952232688343 имя: name координаты: (1, 2)  время создания: 25/03/2025 - 07:01 показатель здоровья: 100.0 количество сердец: 3 тип десантника: HELIX тип оружия: MANREAPER орден: name количество десантников: 1
 
 ]]></system-out>
   </testcase>
