@@ -13,6 +13,8 @@ import helpers.Invoker;
 public class ExecuteScriptCommand implements Command {
     CollectionManager cm;
     Invoker invoker;
+    String[] value;
+
     private boolean interactive;
     public boolean isInteractive() {
         return interactive;
@@ -22,7 +24,7 @@ public class ExecuteScriptCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 

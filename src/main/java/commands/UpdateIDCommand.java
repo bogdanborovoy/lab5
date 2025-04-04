@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class UpdateIDCommand implements Command {
     CollectionManager cm;
     long id;
-    String value;
+    String[] value;
     private boolean interactive;
     public boolean isInteractive() {
         return interactive;
@@ -21,7 +21,7 @@ public class UpdateIDCommand implements Command {
         this.interactive = interactive;
     }
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
         this.value = value;
     }
     /**
@@ -37,19 +37,13 @@ public class UpdateIDCommand implements Command {
      * Метод для выполнения команды обновления элемента коллекции по id.
      */
     public void execute() {
-        Scanner sc = new Scanner(System.in);
-        if (interactive) {
-            cm.updateID(sc);
-
+        if (value != null) {
+            cm.updateID(value);
         }
-        else{
-            if (value != null) {
-                cm.updateID(Long.valueOf(value));
-            }
-            else {
+        else {
                 System.out.println("ID не был передан");
             }
-        }
+
     }
 
     /**

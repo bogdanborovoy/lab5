@@ -121,8 +121,18 @@ public class CollectionManager {
         return output.toString();
     }
 
-    public SpaceMarine add(){
-        SpaceMarine spaceMarine = new SpaceMarine();
+    public SpaceMarine add(String args[]){
+        for(int i = 0; i < 8; i++) {
+            args[i] = args[i].trim();
+        }
+        String name = args[0];
+        Coordinates coordinates = new Coordinates(Integer.parseInt(args[1]), Integer.parseInt(args[2]));
+        double health = Double.parseDouble(args[3]);
+        int heartCount = Integer.parseInt(args[4]);
+        AstartesCategory category = AstartesCategory.valueOf(args[5]);
+        MeleeWeapon meleeWeapon = MeleeWeapon.valueOf(args[6]);
+        Chapter chapter = new Chapter(args[7], Integer.parseInt(args[8]));
+        SpaceMarine spaceMarine = new SpaceMarine(name, coordinates, health, heartCount, category, meleeWeapon, chapter);
         spaceMarines.add(spaceMarine);
         return spaceMarine;
     }
@@ -135,141 +145,138 @@ public class CollectionManager {
         SpaceMarine spaceMarine = new SpaceMarine();
         spaceMarine.setId();
         spaceMarine.setCreationDate();
-        while (spaceMarine.getName() == null) {
-            try {
-                System.out.println("Введите имя: ");
-                spaceMarine.setName(sc.nextLine());
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-
-        Coordinates coordinates = new Coordinates();
-
-        while (coordinates.getX() == null) {
-            try {
-                System.out.println("Введите координаты по x: ");
-                Integer x = Integer.parseInt(sc.nextLine());
-                coordinates.setX(x);
-            } catch (NumberFormatException e) {
-                System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
-            }
-        }
-        while (coordinates.getY() == 0) {
-            try {
-                System.out.println("Введите координаты по y: ");
-                int y = Integer.parseInt(sc.nextLine());
-                coordinates.setY(y);
-                if (y == 0) {
-                    break;
+        try {
+            while (spaceMarine.getName() == null) {
+                try {
+                    System.out.println("Введите имя: ");
+                    spaceMarine.setName(sc.nextLine());
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
                 }
-            } catch (NumberFormatException e) {
-                System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
             }
-        }
 
-        spaceMarine.setCoordinates(coordinates);
+            Coordinates coordinates = new Coordinates();
 
-        while (spaceMarine.getHealth() == 0) {
-            try {
-                System.out.println("Введите показатель здоровья: ");
-                double health = Double.parseDouble(sc.nextLine());
-                spaceMarine.setHealth(health);
-            } catch (NumberFormatException e) {
-                System.out.println("Показатель здоровья должен быть числом от 0 до 2147483647");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+            while (coordinates.getX() == null) {
+                try {
+                    System.out.println("Введите координаты по x: ");
+                    Integer x = Integer.parseInt(sc.nextLine());
+                    coordinates.setX(x);
+                } catch (NumberFormatException e) {
+                    System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-        }
-        while (spaceMarine.getHeartCount() == 0) {
-            try {
-                System.out.println("Введите количество сердец: ");
-                int heartCount = Integer.parseInt(sc.nextLine());
-                spaceMarine.setHeartCount(heartCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Количество сердец должно быть целым числом от 0 до 3");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+            while (coordinates.getY() == 0) {
+                try {
+                    System.out.println("Введите координаты по y: ");
+                    int y = Integer.parseInt(sc.nextLine());
+                    coordinates.setY(y);
+                    if (y == 0) {
+                        break;
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Координаты должны быть целым числом от -2147483648 до 2147483647");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-        }
 
-        System.out.print("Выберите тип десантника: ");
-        while (spaceMarine.getCategory() == null) {
-            try {
-                AstartesCategory.printValues();
-                String line = sc.nextLine().toUpperCase();
-                spaceMarine.setCategory(AstartesCategory.valueOf(line));
-            } catch (IllegalArgumentException e) {
-                System.out.println("Выберите тип из предложенных");
-            }
-        }
+            spaceMarine.setCoordinates(coordinates);
 
-        System.out.print("Выберите тип оружия: ");
-        while (spaceMarine.getMeleeWeapon() == null) {
-            try {
-                MeleeWeapon.printValues();
-                String line = sc.nextLine().toUpperCase();
-                spaceMarine.setMeleeWeapon(MeleeWeapon.valueOf(line));
-            } catch (IllegalArgumentException e) {
-                System.out.println("Выберите тип из предложенных");
+            while (spaceMarine.getHealth() == 0) {
+                try {
+                    System.out.println("Введите показатель здоровья: ");
+                    double health = Double.parseDouble(sc.nextLine());
+                    spaceMarine.setHealth(health);
+                } catch (NumberFormatException e) {
+                    System.out.println("Показатель здоровья должен быть числом от 0 до 2147483647");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
             }
-        }
+            while (spaceMarine.getHeartCount() == 0) {
+                try {
+                    System.out.println("Введите количество сердец: ");
+                    int heartCount = Integer.parseInt(sc.nextLine());
+                    spaceMarine.setHeartCount(heartCount);
+                } catch (NumberFormatException e) {
+                    System.out.println("Количество сердец должно быть целым числом от 0 до 3");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
 
-        Chapter chapter = new Chapter();
-        while (chapter.getName() == null) {
-            try {
-                System.out.println("Введите название ордена: ");
-                chapter.setName(sc.nextLine());
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+            System.out.print("Выберите тип десантника: ");
+            while (spaceMarine.getCategory() == null) {
+                try {
+                    AstartesCategory.printValues();
+                    String line = sc.nextLine().toUpperCase();
+                    spaceMarine.setCategory(AstartesCategory.valueOf(line));
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Выберите тип из предложенных");
+                }
             }
-        }
 
-        while (chapter.getMarinesCount() == null) {
-            try {
-                System.out.println("Введите количество десантников: ");
-                Integer marinesCount = Integer.parseInt(sc.nextLine());
-                chapter.setMarinesCount(marinesCount);
-            } catch (NumberFormatException e) {
-                System.out.println("Введите целое число от 0 до 1000");
-            } catch (IllegalArgumentException e) {
-                System.out.println(e.getMessage());
+            System.out.print("Выберите тип оружия: ");
+            while (spaceMarine.getMeleeWeapon() == null) {
+                try {
+                    MeleeWeapon.printValues();
+                    String line = sc.nextLine().toUpperCase();
+                    spaceMarine.setMeleeWeapon(MeleeWeapon.valueOf(line));
+                } catch (IllegalArgumentException e) {
+                    System.out.println("Выберите тип из предложенных");
+                }
             }
+
+            Chapter chapter = new Chapter();
+            while (chapter.getName() == null) {
+                try {
+                    System.out.println("Введите название ордена: ");
+                    chapter.setName(sc.nextLine());
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+
+            while (chapter.getMarinesCount() == null) {
+                try {
+                    System.out.println("Введите количество десантников: ");
+                    Integer marinesCount = Integer.parseInt(sc.nextLine());
+                    chapter.setMarinesCount(marinesCount);
+                } catch (NumberFormatException e) {
+                    System.out.println("Введите целое число от 0 до 1000");
+                } catch (IllegalArgumentException e) {
+                    System.out.println(e.getMessage());
+                }
+            }
+            spaceMarine.setChapter(chapter);
+            spaceMarines.add(spaceMarine);
+            System.out.println("Космический десантник создан");
+
         }
-        spaceMarine.setChapter(chapter);
-        spaceMarines.add(spaceMarine);
-        System.out.println("Космический десантник создан");
+        catch (NoSuchElementException e) {
+            System.exit(0);
+        }
         return spaceMarine;
-    }
-    public void updateID(Long id){
-        int count = 0;
-        for (SpaceMarine spaceMarine : spaceMarines) {
-            if (spaceMarine.getId() == id) {
-                spaceMarines.remove(spaceMarine);
-                add();
-            }
-        }
-        System.out.println("Обновлено " + count + " элемент(а)");
     }
     /**
      * Обновляет значение элемента коллекции по его ID.
      */
-    public void updateID(Scanner sc) {
-        Long id = null;
-        while (id == null) {
-            try {
-                System.out.println("Введите id: ");
-                id = Long.parseLong(sc.nextLine());
-            } catch (IllegalArgumentException e) {
-                System.out.println("ID должен быть в формате long");
+    public void updateID(String[] args) {
+        int count = 0;
+        SpaceMarine sm = add(args);
+        for (SpaceMarine spaceMarine : spaceMarines) {
+            if (spaceMarine.getId() == sm.getId()) {
+                spaceMarines.remove(spaceMarine);
+                spaceMarines.add(new SpaceMarine());
             }
         }
-        updateID(id);
+        System.out.println("Обновлено " + count + " элемент(а)");
     }
+
+
 
     public void removeById(Long id) {
         for (SpaceMarine spaceMarine : this.spaceMarines) {
@@ -357,9 +364,13 @@ public void executeScript(Invoker invoker) {
                     String name = nextRecord[i].trim();
                     String[] tokens = name.split(" ");
                     Command command = invoker.getCommands().get(tokens[0]);
+                    if (tokens.length > 1) {
+                        String[] args = Arrays.copyOfRange(tokens, 1, tokens.length);
+                        command.passValue(args);
+                    }
                     command.setInteractive(false);
                     System.out.println("Выполняется команда "+name);
-                    invoker.runCommand(nextRecord[i].trim());
+                    invoker.runCommand(command);
                     command.setInteractive(true);
                 }
             }

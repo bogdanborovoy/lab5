@@ -12,7 +12,7 @@ import java.util.Scanner;
 public class RemoveByIDCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
-    String value;
+    String[] value;
 
     public boolean isInteractive() {
         return interactive;
@@ -22,7 +22,7 @@ public class RemoveByIDCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
         this.value = value;
     }
 
@@ -45,7 +45,7 @@ public class RemoveByIDCommand implements Command {
         }
         else {
             if (value != null) {
-                cm.removeById(Long.valueOf(value));
+                cm.removeById(Long.valueOf(value[0]));
             }
             else {
                 System.out.println("ID не был передан");

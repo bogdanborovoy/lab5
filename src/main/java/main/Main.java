@@ -18,7 +18,7 @@ public class Main {
         //export FILE_NAME="/home/studs/s465267/lab5/files/values.csv" - helios
         //export FILE_NAME="src/main/java/files/values.csv"
         String filePath = System.getenv("FILE_NAME");
-        //String filePath = "src/main/java/files/values.csv";
+        //String filePath = "src/main/resources/files/values.csv";
         CSVReader csvReader;
         CollectionManager receiver = new CollectionManager();
         Invoker invoker = new Invoker();
@@ -55,6 +55,8 @@ public class Main {
                     Coordinates coordinates = new Coordinates(Integer.parseInt(nextRecord[1]), Integer.parseInt(nextRecord[2]));
                     double health = Double.parseDouble(nextRecord[3]);
                     int heartCount = Integer.parseInt(nextRecord[4]);
+
+
                     AstartesCategory category = AstartesCategory.valueOf(nextRecord[5]);
                     MeleeWeapon meleeWeapon = MeleeWeapon.valueOf(nextRecord[6]);
                     Chapter chapter = new Chapter(nextRecord[7], Integer.parseInt(nextRecord[8]));

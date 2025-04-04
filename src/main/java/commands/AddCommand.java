@@ -13,6 +13,8 @@ import java.util.Scanner;
 public class AddCommand implements Command {
     CollectionManager cm;
     Invoker invoker;
+    String[] value;
+
     private boolean interactive = true;
     /**
      * Конструктор класса AddCommand.
@@ -31,8 +33,8 @@ public class AddCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
-
+    public void passValue(String[] value) {
+        this.value = value;
     }
 
     /**
@@ -44,7 +46,7 @@ public class AddCommand implements Command {
             cm.add(sc);
         }
         else{
-            cm.add();
+            cm.add(value);
         }
     }
 

@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class RemoveLowerCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
+
     public boolean isInteractive() {
         return interactive;
     }
@@ -20,7 +22,7 @@ public class RemoveLowerCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 
@@ -38,12 +40,14 @@ public class RemoveLowerCommand implements Command {
      */
     public void execute() {
         Scanner sc = new Scanner(System.in);
+        String[] args = sc.nextLine().split(", ");
+
         if (interactive) {
             System.out.println("Создание элемента");
             cm.removeLower(cm.add(sc));
         }
         else {
-            cm.removeLower(cm.add());
+            cm.removeLower(cm.add(args));
         }
     }
 

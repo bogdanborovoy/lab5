@@ -11,6 +11,7 @@ import helpers.CollectionManager;
 public class CountGreaterThanHeartCountCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
     public boolean isInteractive() {
         return interactive;
     }
@@ -19,7 +20,7 @@ public class CountGreaterThanHeartCountCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 

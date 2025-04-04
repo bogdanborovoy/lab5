@@ -18,9 +18,10 @@ public class PrintFieldAscendingHealthCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
+
 
     /**
      * Конструктор класса PrintFieldAscendingHealthCommand.

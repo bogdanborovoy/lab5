@@ -19,5 +19,5 @@ public interface Command {
 
     void setInteractive(boolean b);
 
-    void passValue(String value);
+    void passValue(String[] value);
 }

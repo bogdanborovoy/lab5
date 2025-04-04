@@ -10,6 +10,7 @@ import helpers.CollectionManager;
 public class FilterStartsWithNameCommand implements Command {
     CollectionManager cm;
     String name;
+    String[] value;
     private boolean interactive;
     public boolean isInteractive() {
         return interactive;
@@ -19,7 +20,7 @@ public class FilterStartsWithNameCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 

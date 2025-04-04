@@ -84,6 +84,7 @@ public class SpaceMarine {
      * @param meleeWeapon Тип оружия ближнего боя
      * @param chapter Орден космического десантника
      */
+
     public SpaceMarine(String name, Coordinates coordinates,
                        double health, int heartCount, AstartesCategory category,
                        MeleeWeapon meleeWeapon, Chapter chapter) {
@@ -202,8 +203,11 @@ public class SpaceMarine {
         }
         if (name.trim().isEmpty()) {
             System.out.println("Строка не может быть пустой");
+
         }
-        this.name = name;
+        else {
+            this.name = name;
+        }
     }
 
     /**

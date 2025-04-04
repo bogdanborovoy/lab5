@@ -10,6 +10,8 @@ import helpers.CollectionManager;
 public class SaveCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
+
     public boolean isInteractive() {
         return interactive;
     }
@@ -18,7 +20,7 @@ public class SaveCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 

@@ -11,6 +11,8 @@ import helpers.Invoker;
 public class HelpCommand implements Command {
     Invoker invoker;
     CollectionManager cm;
+    String[] value;
+
     private boolean interactive;
     public boolean isInteractive() {
         return interactive;
@@ -20,7 +22,7 @@ public class HelpCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 

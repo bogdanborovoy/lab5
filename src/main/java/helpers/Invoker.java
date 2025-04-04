@@ -2,6 +2,7 @@ package helpers;
 
 import commands.Command;
 
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -64,10 +65,12 @@ public class Invoker {
             System.out.println("Команда не найдена, повторите попытку");
         }
     }
-    public void runCommand(String name, String value) {
-        Command command = commands.get(name);
+    public void runCommand(String[] value) {
+        String name = value[0];
+        String [] args = Arrays.copyOfRange(value, 1, value.length);
+        Command command = commands.get(value[0]);
         if (command != null) {
-            command.passValue(value);
+            command.passValue(args);
             command.execute();
         } else {
             System.out.println("Команда не найдена, повторите попытку");

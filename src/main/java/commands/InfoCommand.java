@@ -11,6 +11,7 @@ import helpers.CollectionManager;
 public class InfoCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
     public boolean isInteractive() {
         return interactive;
     }
@@ -19,9 +20,11 @@ public class InfoCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
+
+
 
     /**
      * Конструктор класса InfoCommand.

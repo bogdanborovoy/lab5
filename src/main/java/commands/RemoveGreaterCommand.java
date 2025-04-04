@@ -12,6 +12,8 @@ import java.util.Scanner;
 public class RemoveGreaterCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
+
     public boolean isInteractive() {
         return interactive;
     }
@@ -20,7 +22,7 @@ public class RemoveGreaterCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 
@@ -38,12 +40,13 @@ public class RemoveGreaterCommand implements Command {
      */
     public void execute() {
         Scanner sc = new Scanner(System.in);
+        String[] args = sc.nextLine().split(", ");
         if (interactive) {
             System.out.println("Создание элемента");
             cm.removeGreater(cm.add(sc));
         }
         else {
-            cm.removeGreater(cm.add());
+            cm.removeGreater(cm.add(args));
         }
     }
 

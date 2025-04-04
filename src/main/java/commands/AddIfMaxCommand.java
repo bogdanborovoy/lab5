@@ -13,6 +13,7 @@ import java.util.Scanner;
 public class AddIfMaxCommand implements Command {
     CollectionManager cm;
     private boolean interactive;
+    String[] value;
     public boolean isInteractive() {
         return interactive;
     }
@@ -21,7 +22,7 @@ public class AddIfMaxCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 
@@ -40,12 +41,13 @@ public class AddIfMaxCommand implements Command {
      */
     public void execute() {
         Scanner sc = new Scanner(System.in);
+        String[] args = sc.nextLine().split(", ");
         if (interactive){
             System.out.println("Создание элемента");
             cm.addIfMax(cm.add(sc));
         }
         else{
-            cm.addIfMax(cm.add());
+            cm.addIfMax(cm.add(args));
         }
     }
 

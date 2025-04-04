@@ -9,6 +9,7 @@ import helpers.CollectionManager;
  */
 public class ExitCommand implements Command {
     CollectionManager cm;
+    String[] value;
     private boolean interactive;
     public boolean isInteractive() {
         return interactive;
@@ -18,7 +19,7 @@ public class ExitCommand implements Command {
     }
 
     @Override
-    public void passValue(String value) {
+    public void passValue(String[] value) {
 
     }
 
