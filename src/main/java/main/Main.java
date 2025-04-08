@@ -11,7 +11,6 @@ import com.opencsv.*;
 
 import java.io.*;
 import java.util.Scanner;
-
 public class Main {
     public static void main(String[] args) {
         //export FILE_NAME="/home/studs/s465267/lab5/files/values.csv" - helios
