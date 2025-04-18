@@ -8,6 +8,7 @@ import commands.*;
 import helpers.CollectionManager;
 import helpers.Invoker;
 import com.opencsv.*;
+import org.example.Client;
 
 import java.io.*;
 import java.util.Scanner;
@@ -74,13 +75,26 @@ public class Main {
             System.out.println("Неверный формат данных в указанном файле");
             System.exit(1);
         }
-
         Scanner scanner = new Scanner(System.in);
+        Client client = new Client();
+        client.connect("localhost", 5578);
         System.out.println("Введите команду (для получения списка всех команд введите \"help\"): ");
         while (scanner.hasNextLine()) {
+
             String line = scanner.nextLine();
             String[] tokens = line.split(" ");
             Command command = invoker.getCommands().get(tokens[0]);
+            try {
+
+                    client.sendCommand(command);
+
+                System.out.println("sent command: " + command);
+
+                client.disconnect();
+
+            } catch (IOException e) {
+                throw new RuntimeException(e);
+            }
             invoker.runCommand(command);
             System.out.println("Введите команду (для получения списка всех команд введите \"help\"): ");
         }

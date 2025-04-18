@@ -2,6 +2,7 @@ package helpers;
 
 import commands.Command;
 
+import java.io.Serializable;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
@@ -11,7 +12,7 @@ import java.util.Map;
  * Он хранит команды в словаре и позволяет их выполнять по имени.
  * @author bogdanborovoy
  */
-public class Invoker {
+public class Invoker implements Serializable {
     private boolean interactive;
     /**
      * Словарь команд, где ключ — название команды, а значение — сама команда.

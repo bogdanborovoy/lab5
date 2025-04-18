@@ -1,11 +1,13 @@
 package commands;
 
+import java.io.Serializable;
+
 /**
  * Шаблон команд
  * @author bogdanborovoy
  */
 
-public interface Command {
+public interface Command extends Serializable {
     /**
      * Шаблон реализации команды
      */

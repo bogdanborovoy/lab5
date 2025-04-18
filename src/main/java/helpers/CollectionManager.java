@@ -15,12 +15,12 @@ import java.util.*;
  * Класс управления коллекцией космических кораблей
  * @author bogdanborovoy
  */
-public class CollectionManager {
+public class CollectionManager implements Serializable {
 
     /**
      * Компаратор для сравнения элементов коллекции по ID.
      */
-    static class IDComparator implements Comparator<SpaceMarine> {
+    static class IDComparator implements Comparator<SpaceMarine>, Serializable {
         /**
          * Сравнивает два объекта SpaceMarine по их ID.
          *
